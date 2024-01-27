@@ -1,10 +1,15 @@
 {
     "name": "hexlet/code",
+    "description": "Learning project",
+    "license": "proprietary",
     "autoload": {
         "psr-4": {
             "Hexlet\\Code\\": "src/"
         }
     },
+    "bin": [
+        "bin/brain-games"
+    ],
     "authors": [
         {
             "name": "Oleg Tishkin",
