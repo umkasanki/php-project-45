@@ -1,6 +1,8 @@
 # Makefile
 install:
 	composer install
+	chmod +x bin/brain-games
 
 brain-games:
-	php bin/brain-games.php
+	./bin/brain-games
+
