@@ -2,9 +2,13 @@
 install:
 	composer install
 	chmod +x bin/brain-games
+	chmod +x bin/brain-even
 
 brain-games:
 	./bin/brain-games
+
+brain-even:
+	./bin/brain-even
 
 validate:
 	composer validate
