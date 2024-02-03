@@ -2,6 +2,7 @@
 
 <?php
 
+require_once "./src/Cli.php";
 require_once "./src/Calc.php";
 
 $autoloadPath1 = __DIR__ . '/../../../autoload.php';
@@ -12,4 +13,6 @@ if (file_exists($autoloadPath1)) {
 } else {
     require_once $autoloadPath2;
 }
-\BrainGames\Calc\answer();
+
+$name  = \BrainGames\Cli\greeting();
+\BrainGames\Calc\calc($name);
