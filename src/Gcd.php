@@ -2,7 +2,6 @@
 
 namespace BrainGames\Gcd;
 
-use function BrainGames\Calc\getAnswer;
 use function cli\line;
 use function cli\prompt;
 
