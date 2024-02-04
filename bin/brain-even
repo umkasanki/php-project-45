@@ -2,17 +2,19 @@
 
 <?php
 
-require_once "./src/Cli.php";
+use function cli\line;
+
+require_once __DIR__ . '/../vendor/autoload.php';;
+require_once "./src/Engine.php";
 require_once "./src/Random.php";
 
-$autoloadPath1 = __DIR__ . '/../../../autoload.php';
-$autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
+$name  = \BrainGames\Engine\greeting();
+$gameEvent = function ($name): bool {
+    line('Answer "yes" if the number is even, otherwise answer "no".');
 
-if (file_exists($autoloadPath1)) {
-    require_once $autoloadPath1;
-} else {
-    require_once $autoloadPath2;
-}
+    $question = rand(10, 99);
+    $result = ($question % 2 === 0 ? 'yes' : 'no');
 
-$name  = \BrainGames\Cli\greeting();
-\BrainGames\Cli\askRandom($name);
+    return \BrainGames\Engine\game($name, $question, $result);
+};
+\BrainGames\Engine\checkGame($name, $gameEvent);
