@@ -19,6 +19,12 @@ function game($name, $question, $result): bool
 {
     line("Question: $question");
     $answer = prompt('Your answer');
+    $gameResult = $answer == $result;
+
+    if (!$gameResult) {
+        line("'$answer' is wrong answer ;(. Correct answer was '$result'. Let's try again, $name!");
+    }
+
     return $answer == $result;
 }
 
