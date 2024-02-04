@@ -2,10 +2,37 @@
 
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';;
-
+require_once __DIR__ . '/../vendor/autoload.php';
 require_once "./src/Engine.php";
 require_once "./src/Calc.php";
 
+use function cli\line;
+
 $name  = \BrainGames\Engine\greeting();
-\BrainGames\Calc\runQuiz($name);
+$gameEvent = function ($name): bool {
+    line('What is the result of the expression?');
+
+    $operandOne = rand(0, 9);
+    $operandTwo = rand(0, 9);
+    $operator = \BrainGames\Calc\operation();
+
+    $question = "$operandOne $operator $operandTwo";
+
+    $result = null;
+
+    switch ($operator) {
+        case '+':
+            $result = $operandOne + $operandTwo;
+            break;
+        case '-':
+            $result = $operandOne - $operandTwo;
+            break;
+        case '*':
+            $result = $operandOne * $operandTwo;
+            break;
+    }
+
+    return \BrainGames\Engine\game($name, $question, $result);
+};
+
+\BrainGames\Engine\checkGame($name, $gameEvent);

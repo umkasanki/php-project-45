@@ -2,10 +2,6 @@
 
 namespace BrainGames\Calc;
 
-use function BrainGames\Cli\isEven;
-use function cli\line;
-use function cli\prompt;
-
 function operation(): string
 {
     $operations = ['+', '-', '*'];
@@ -28,47 +24,4 @@ function multiply(int $operandOne, int $operandTwo): int
     return $operandOne * $operandTwo;
 }
 
-function askQuestion(): string
-{
-    $operandOne = rand(0, 9);
-    $operandTwo = rand(0, 9);
-    $operator = operation();
 
-    line("Question: $operandOne $operator $operandTwo");
-
-    $operatorResult = null;
-
-    switch ($operator) {
-        case '+':
-            $operatorResult = $operandOne + $operandTwo;
-            break;
-        case '-':
-            $operatorResult = $operandOne - $operandTwo;
-            break;
-        case '*':
-            $operatorResult = $operandOne * $operandTwo;
-            break;
-    }
-
-    $answer = intval(prompt('Your answer'));
-
-    return $operatorResult === $answer;
-}
-
-function runQuiz(string $name)
-{
-    $i = 0;
-    while ($i < 3) {
-        if (askQuestion()) {
-            print_r("Correct!\n");
-        } else {
-            break;
-        }
-
-        $i = $i + 1;
-
-        if ($i === 3) {
-            line("Congratulations, $name!");
-        }
-    }
-}
