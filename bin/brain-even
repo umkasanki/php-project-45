@@ -4,7 +4,7 @@
 
 use function cli\line;
 
-require_once __DIR__ . '/../vendor/autoload.php';;
+require_once __DIR__ . '/../vendor/autoload.php';
 require_once "./src/Engine.php";
 
 $name  = \BrainGames\Engine\greeting();
