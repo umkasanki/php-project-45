@@ -28,7 +28,7 @@ function multiply(int $operandOne, int $operandTwo): int
     return $operandOne * $operandTwo;
 }
 
-function getAnswer(): string
+function askQuestion(): string
 {
     $operandOne = rand(0, 9);
     $operandTwo = rand(0, 9);
@@ -55,11 +55,11 @@ function getAnswer(): string
     return $operatorResult === $answer;
 }
 
-function calc(string $name)
+function runQuiz(string $name)
 {
     $i = 0;
     while ($i < 3) {
-        if (getAnswer()) {
+        if (askQuestion()) {
             print_r("Correct!\n");
         } else {
             break;

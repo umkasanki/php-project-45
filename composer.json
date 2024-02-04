@@ -1,27 +1,29 @@
 {
-    "name": "hexlet/code",
-    "description": "Learning project",
-    "license": "proprietary",
-    "autoload": {
-        "psr-4": {
-            "Hexlet\\Code\\": "src/"
-        }
-    },
-    "bin": [
-        "bin/brain-games",
-        "bin/brain-even",
-        "bin/brain-calc"
-    ],
-    "authors": [
-        {
-            "name": "Oleg Tishkin",
-            "email": "umkasanki@gmail.com"
-        }
-    ],
-    "require": {
-        "wp-cli/php-cli-tools": "^0.11.22"
-    },
-    "require-dev": {
-        "squizlabs/php_codesniffer": "^3.8"
+  "name": "hexlet/code",
+  "description": "Learning project",
+  "license": "proprietary",
+  "autoload": {
+    "psr-4": {
+      "Hexlet\\Code\\": "src/"
     }
+  },
+  "bin": [
+    "bin/brain-games",
+    "bin/brain-even",
+    "bin/brain-calc",
+    "bin/brain-gcd"
+  ],
+  "authors": [
+    {
+      "name": "Oleg Tishkin",
+      "email": "umkasanki@gmail.com"
+    }
+  ],
+  "require": {
+    "wp-cli/php-cli-tools": "^0.11.22",
+    "ext-gmp": "*"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.8"
+  }
 }
