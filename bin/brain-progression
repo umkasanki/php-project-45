@@ -12,7 +12,7 @@ use function cli\line;
 
 $name  = \BrainGames\Engine\greeting();
 $gameEvent = function ($name): bool {
-    line('What number is missing in the progression?');
+    line('Find the greatest common divisor of given numbers.');
 
     [$x, $y] = getRandomNumbers();
     $question= "Question: $x $y";

@@ -5,6 +5,7 @@ install:
 	chmod +x bin/brain-even
 	chmod +x bin/brain-calc
 	chmod +x bin/brain-gcd
+	chmod +x bin/brain-progression
 
 validate:
 	composer validate
