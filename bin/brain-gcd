@@ -2,17 +2,23 @@
 
 <?php
 
-require_once "./src/Cli.php";
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once "./src/Engine.php";
 require_once "./src/Gcd.php";
 
-$autoloadPath1 = __DIR__ . '/../../../autoload.php';
-$autoloadPath2 = __DIR__ . '/../vendor/autoload.php';
+use function BrainGames\Gcd\gcd;
+use function BrainGames\Gcd\getRandomNumbers;
+use function cli\line;
 
-if (file_exists($autoloadPath1)) {
-    require_once $autoloadPath1;
-} else {
-    require_once $autoloadPath2;
-}
+$name  = \BrainGames\Engine\greeting();
+$gameEvent = function ($name): bool {
+    line('Find the greatest common divisor of given numbers.');
 
-$name  = \BrainGames\Cli\greeting();
-\BrainGames\Gcd\runQuiz($name);
+    [$x, $y] = getRandomNumbers();
+    $question= "Question: $x $y";
+    $result = gcd($x, $y);
+
+    return \BrainGames\Engine\game($name, $question, $result);
+};
+
+\BrainGames\Engine\checkGame($name, $gameEvent);
