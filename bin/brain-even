@@ -16,4 +16,5 @@ $gameEvent = function ($name): bool {
 
     return \BrainGames\Engine\game($name, $question, $result);
 };
+
 \BrainGames\Engine\checkGame($name, $gameEvent);
