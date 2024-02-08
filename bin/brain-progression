@@ -10,16 +10,18 @@ use function BrainGames\Gcd\gcd;
 use function BrainGames\Gcd\getRandomNumbers;
 use function cli\line;
 
-$name  = \BrainGames\Engine\greeting();
+$name = \BrainGames\Engine\greeting();
 $gameEvent = function ($name): bool {
     line('What number is missing in the progression?');
 
     $progression = \BrainGames\Progression\getProgression();
     $hiddenElIndex = rand(1, count($progression) - 1);
-    $progressionStr = str_replace((' ' . $progression[$hiddenElIndex]), ' ..', implode(' ', $progression));
+    $hiddenEl = $progression[$hiddenElIndex];
+    $progression[$hiddenElIndex] = '..';
+    $progressionStr = implode(' ', $progression);
 
-    $question= "Question: $progressionStr";
-    $result = $progression[$hiddenElIndex];
+    $question = "Question: $progressionStr";
+    $result = $hiddenEl;
 
     return \BrainGames\Engine\game($name, $question, $result);
 };
