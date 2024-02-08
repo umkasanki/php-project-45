@@ -4,7 +4,7 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once "./src/Engine.php";
-require_once "./src/Gcd.php";
+require_once "./src/Progression.php";
 
 use function BrainGames\Gcd\gcd;
 use function BrainGames\Gcd\getRandomNumbers;
@@ -12,11 +12,14 @@ use function cli\line;
 
 $name  = \BrainGames\Engine\greeting();
 $gameEvent = function ($name): bool {
-    line('Find the greatest common divisor of given numbers.');
+    line('What number is missing in the progression?');
 
-    [$x, $y] = getRandomNumbers();
-    $question= "Question: $x $y";
-    $result = gcd($x, $y);
+    $progression = \BrainGames\Progression\getProgression();
+    $hiddenElIndex = rand(1, count($progression) - 1);
+    $progressionStr = str_replace((' ' . $progression[$hiddenElIndex]), ' ..', implode(' ', $progression));
+
+    $question= "Question: $progressionStr";
+    $result = $progression[$hiddenElIndex];
 
     return \BrainGames\Engine\game($name, $question, $result);
 };
