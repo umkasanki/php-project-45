@@ -21,4 +21,3 @@ function getRandomNumbers(): array
 {
     return [rand(2, 20), rand(2, 20)];
 }
-

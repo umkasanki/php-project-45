@@ -23,5 +23,3 @@ function multiply(int $operandOne, int $operandTwo): int
 {
     return $operandOne * $operandTwo;
 }
-
-
