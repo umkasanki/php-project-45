@@ -2,7 +2,6 @@
 
 namespace BrainGames\Engine;
 
-use function BrainGames\Cli\isEven;
 use function cli\line;
 use function cli\prompt;
 

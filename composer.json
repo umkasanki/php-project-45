@@ -5,7 +5,13 @@
   "autoload": {
     "psr-4": {
       "Hexlet\\Code\\": "src/"
-    }
+    },
+    "files": [
+      "src/Engine.php",
+      "src/Calc.php",
+      "src/Gcd.php",
+      "src/Progression.php"
+    ]
   },
   "bin": [
     "bin/brain-games",

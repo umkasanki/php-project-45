@@ -3,18 +3,20 @@
 <?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
-require_once "./src/Engine.php";
-require_once "./src/Progression.php";
 
 use function BrainGames\Gcd\gcd;
 use function BrainGames\Gcd\getRandomNumbers;
+use function BrainGames\Progression\getProgression;
 use function cli\line;
+use function BrainGames\Engine\greeting;
+use function BrainGames\Engine\game;
+use function BrainGames\Engine\checkGame;
 
-$name = \BrainGames\Engine\greeting();
+$name = greeting();
 $gameEvent = function ($name): bool {
     line('What number is missing in the progression?');
 
-    $progression = \BrainGames\Progression\getProgression();
+    $progression = getProgression();
     $hiddenElIndex = rand(1, count($progression) - 1);
     $hiddenEl = $progression[$hiddenElIndex];
     $progression[$hiddenElIndex] = '..';
@@ -23,7 +25,7 @@ $gameEvent = function ($name): bool {
     $question = "Question: $progressionStr";
     $result = $hiddenEl;
 
-    return \BrainGames\Engine\game($name, $question, $result);
+    return game($name, $question, $result);
 };
 
-\BrainGames\Engine\checkGame($name, $gameEvent);
+checkGame($name, $gameEvent);

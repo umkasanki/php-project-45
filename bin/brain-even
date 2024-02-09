@@ -3,16 +3,20 @@
 <?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
-require_once "./src/Engine.php";
 
-$name  = \BrainGames\Engine\greeting();
+use function cli\line;
+use function BrainGames\Engine\greeting;
+use function BrainGames\Engine\game;
+use function BrainGames\Engine\checkGame;
+
+$name  = greeting();
 $gameEvent = function ($name): bool {
     line('Answer "yes" if the number is even, otherwise answer "no".');
 
     $question = rand(10, 99);
     $result = ($question % 2 === 0 ? 'yes' : 'no');
 
-    return \BrainGames\Engine\game($name, $question, $result);
+    return game($name, $question, $result);
 };
 
-\BrainGames\Engine\checkGame($name, $gameEvent);
+checkGame($name, $gameEvent);

@@ -3,14 +3,15 @@
 <?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
-require_once "./src/Engine.php";
-require_once "./src/Gcd.php";
 
 use function BrainGames\Gcd\gcd;
 use function BrainGames\Gcd\getRandomNumbers;
 use function cli\line;
+use function BrainGames\Engine\greeting;
+use function BrainGames\Engine\game;
+use function BrainGames\Engine\checkGame;
 
-$name  = \BrainGames\Engine\greeting();
+$name  = greeting();
 $gameEvent = function ($name): bool {
     line('What number is missing in the progression?');
 
@@ -18,7 +19,7 @@ $gameEvent = function ($name): bool {
     $question= "Question: $x $y";
     $result = gcd($x, $y);
 
-    return \BrainGames\Engine\game($name, $question, $result);
+    return game($name, $question, $result);
 };
 
-\BrainGames\Engine\checkGame($name, $gameEvent);
+checkGame($name, $gameEvent);

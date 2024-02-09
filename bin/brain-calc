@@ -3,18 +3,20 @@
 <?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
-require_once "./src/Engine.php";
-require_once "./src/Calc.php";
 
+use function BrainGames\Engine\greeting;
+use function BrainGames\Calc\operation;
 use function cli\line;
+use function BrainGames\Engine\game;
+use function BrainGames\Engine\checkGame;
 
-$name  = \BrainGames\Engine\greeting();
+$name  = greeting();
 $gameEvent = function ($name): bool {
     line('What is the result of the expression?');
 
     $operandOne = rand(0, 9);
     $operandTwo = rand(0, 9);
-    $operator = \BrainGames\Calc\operation();
+    $operator = operation();
 
     $question = "$operandOne $operator $operandTwo";
 
@@ -32,7 +34,7 @@ $gameEvent = function ($name): bool {
             break;
     }
 
-    return \BrainGames\Engine\game($name, $question, $result);
+    return game($name, $question, $result);
 };
 
-\BrainGames\Engine\checkGame($name, $gameEvent);
+checkGame($name, $gameEvent);
