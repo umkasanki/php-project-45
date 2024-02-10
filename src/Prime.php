@@ -2,7 +2,7 @@
 
 namespace BrainGames\Prime;
 
-function IsPrime(int $number): bool
+function IsPrime(int $number): string
 {
     if ($number == 1) {
         return 'no';
