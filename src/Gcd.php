@@ -5,7 +5,7 @@ namespace BrainGames\Gcd;
 use function cli\line;
 use function cli\prompt;
 
-function gcd($a, $b): int
+function gcd(int $a, int $b): int
 {
     while ($a != $b) {
         if ($a > $b) {
