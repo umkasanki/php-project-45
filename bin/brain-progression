@@ -22,7 +22,7 @@ $gameEvent = function ($name): bool {
     $progression[$hiddenElIndex] = '..';
     $progressionStr = implode(' ', $progression);
 
-    $question = "Question: $progressionStr";
+    $question = "$progressionStr";
     $result = $hiddenEl;
 
     return game($name, $question, $result);

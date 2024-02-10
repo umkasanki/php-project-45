@@ -16,7 +16,7 @@ $gameEvent = function ($name): bool {
     line('What number is missing in the progression?');
 
     [$x, $y] = getRandomNumbers();
-    $question= "Question: $x $y";
+    $question= "$x $y";
     $result = gcd($x, $y);
 
     return game($name, $question, $result);
