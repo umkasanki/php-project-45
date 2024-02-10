@@ -21,7 +21,8 @@ function game($name, $question, $result): bool
     $gameResult = $answer == $result;
 
     if (!$gameResult) {
-        line("'$answer' is wrong answer ;(. Correct answer was '$result'. Let's try again, $name!");
+        line("'$answer' is wrong answer ;(. Correct answer was '$result'.");
+        line("Let's try again, $name!");
     }
 
     return $answer == $result;

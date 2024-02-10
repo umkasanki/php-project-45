@@ -11,9 +11,9 @@ use function BrainGames\Engine\greeting;
 use function BrainGames\Engine\game;
 use function BrainGames\Engine\checkGame;
 
-//$name  = greeting();
+$name  = greeting();
 $gameEvent = function ($name): bool {
-    line('What number is missing in the progression?');
+    line('Find the greatest common divisor of given numbers.');
 
     [$x, $y] = getRandomNumbers();
     $question= "$x $y";
