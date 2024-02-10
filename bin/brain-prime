@@ -1,0 +1,24 @@
+#!/usr/bin/env php
+
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use function BrainGames\Prime\IsPrime;
+use function cli\line;
+use function BrainGames\Engine\greeting;
+use function BrainGames\Engine\game;
+use function BrainGames\Engine\checkGame;
+
+$name  = greeting();
+
+$gameEvent = function ($name): bool {
+    line('Answer "yes" if given number is prime. Otherwise answer "no".');
+
+    $question= rand(1, 25);
+    $result = isPrime($question);
+
+    return game($name, $question, $result);
+};
+
+checkGame($name, $gameEvent);

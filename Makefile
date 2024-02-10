@@ -6,6 +6,7 @@ install:
 	chmod +x bin/brain-calc
 	chmod +x bin/brain-gcd
 	chmod +x bin/brain-progression
+	chmod +x bin/brain-prime
 
 validate:
 	composer validate
@@ -27,3 +28,6 @@ brain-gcd:
 
 brain-progression:
 	./bin/brain-progression
+
+brain-prime:
+	./bin/brain-prime
