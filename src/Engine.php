@@ -14,7 +14,7 @@ function greeting(): string
     return ucfirst($name);
 }
 
-function game($name, $question, $result): bool
+function game(string $name, string|int $question, string|int $result): bool
 {
     line("Question: $question");
     $answer = prompt('Your answer');
@@ -28,7 +28,7 @@ function game($name, $question, $result): bool
     return $answer == $result;
 }
 
-function checkGame($name, $gameEvent): void
+function checkGame(string $name, callable $gameEvent): void
 {
     $i = 0;
     while ($i < 3) {
