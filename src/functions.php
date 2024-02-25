@@ -18,7 +18,7 @@ function barChart($arr):void
     for ($row = 0; $row <= $diagramH; $row++) {
         foreach ($arr as $value) {
             if ($value > $diagramH - $row) {
-                echo "+ ";
+                echo "* ";
             } else {
                 echo " ";
             }
