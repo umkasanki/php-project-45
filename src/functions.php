@@ -4,6 +4,10 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 function barChart($arr):void
 {
+    if (empty($arr)) {
+        return;
+    }
+
     $min = min(min($arr), 0);
     $max = max(max($arr), 0);
 
