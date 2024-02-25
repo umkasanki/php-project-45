@@ -11,14 +11,6 @@ function barChart($arr):void
     $min = min(min($arr), 0);
     $max = max(max($arr), 0);
 
-    $diagramH = $max - $min;
-
-    function getChar($val, $row): string
-    {
-        $char = '#';
-        return $char;
-    }
-
     for ($row = $max; $row > $min; $row--) {
         foreach ($arr as $value) {
             if ($row > 0) {
@@ -35,7 +27,7 @@ function barChart($arr):void
                 }
             }
         }
-        echo PHP_EOL;
+        echo "\n";
     }
 }
 
