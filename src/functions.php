@@ -15,16 +15,24 @@ function barChart($arr):void
         return $char;
     }
 
-    for ($row = 0; $row <= $diagramH; $row++) {
+    for ($row = $max; $row > $min; $row--) {
         foreach ($arr as $value) {
-            if ($value > $diagramH - $row) {
-                echo "* ";
+            if ($row > 0) {
+                if ($value >= $row) {
+                    echo '*';
+                } else {
+                    echo ' ';
+                }
             } else {
-                echo " ";
+                if ($value < $row) {
+                    echo '# ';
+                } else {
+                    echo ' ';
+                }
             }
         }
         echo PHP_EOL;
     }
 }
 
-barChart([5, 10, 0, 3, 4]);
+barChart([5, 10, -5, -3, 7]);
