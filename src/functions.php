@@ -8,7 +8,6 @@ function barChart($arr):void
     $max = max(max($arr), 0);
 
     $diagramH = $max - $min;
-    $diagramW = count($arr) - 1;
 
     function getChar($val, $row): string
     {
@@ -17,22 +16,15 @@ function barChart($arr):void
     }
 
     for ($row = 0; $row <= $diagramH; $row++) {
-//        for ($col = 0; $col <= $diagramW; $col++) {
-//            echo getChar($arr[$col], $row);
-//            if ($col == $diagramW) {
-//                echo "\n";
-//            }
-//        }
         foreach ($arr as $value) {
-            if ($value > $row) {
-                echo "# ";
+            if ($value > $diagramH - $row) {
+                echo "+ ";
             } else {
-                echo "  ";
+                echo " ";
             }
         }
         echo PHP_EOL;
     }
 }
 
-
-barChart([5, 10, 1, 3, 4]);
+barChart([5, 10, 0, 3, 4]);
