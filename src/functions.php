@@ -23,7 +23,7 @@ function barChart($arr):string
                 }
             } else {
                 if ($value < $row) {
-                    $out .=  '# ';
+                    $out .=  '#';
                 } else {
                     $out .=  ' ';
                 }
@@ -51,5 +51,7 @@ $expected = implode("\n", $data);
 $numbers = [1, 5, -3, 0, 4];
 //$numbers = [-5, 5, -3, -2, -1, 1, 2, 3, 0, 6];
 
-//var_dump(barChart($numbers));
+var_dump(barChart($numbers));
 var_dump($expected);
+
+var_dump(barChart($numbers) === $expected);
